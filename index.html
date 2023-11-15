@@ -58,7 +58,7 @@
                 </svg>
               </div>
               <div class="ml-3">
-                <h3 class="text-sm font-medium text-red-800">Tous les champs doivent être remplis</h3>
+                <h3 id="erreur" class="text-sm font-medium text-red-800">Tous les champs doivent être remplis</h3>
               </div>
             </div>
           </div>          
@@ -96,8 +96,21 @@
     </div>
   </div>
 </div>
-<script type="texte/javascripts" src="./script.js">
 
+<script>
+  console.log("script chargés")
+  let btn = document.querySelector ("button")
+  btn.addEventListener('submit',function(e){
+      let firstName = document.getElementById("first-name");
+      let lastName = document.getElementById("last-name");
+      if (firstName.value.trim() == ""){
+        let error = document.getElementById("erreur")
+        error.innerHTML = erreur
+        e.preventDefault()
+      }
+
+    
+  })
 </script>
 </body>
 </html>
