@@ -98,52 +98,42 @@
 </div>
 
 <script>
-  console.log("script chargés");
   let btn = document.querySelector ("form");
   btn.addEventListener('submit',function(e){
-      let firstName = document.getElementById("first-name");
-      let lastName = document.getElementById("last-name");
-      var div = document.getElementById ("error-message")
+    // Récupération des données dans les champs du formulaire
+    let firstName = document.getElementById("first-name");
+    let lastName = document.getElementById("last-name");
+    let div = document.getElementById ("error-message");
+    let message = document.getElementById("message");
+    let conteneur = document.getElementById("comment-list");
+// Si le champ Prénom est vide --> renvoi de l'erreur
       if (firstName.value == ""){
         let error = document.getElementById("erreur");
         div.style.display = "";
-        //e.preventDefault();
-        console.log(error);
-
+// Si le champ Nom est vide --> renvoi de l'erreur   
       }else if(lastName.value == ""){
         let error = document.getElementById("erreur");
         div.style.display = "";
-        //e.preventDefault();
-        console.log(error);  
-
+// Si le champ commentaire est vide --> renvoi de l'erreur
       }else if(message.value == ""){
         let error = document.getElementById("erreur");
         div.style.display = "";
-        //e.preventDefault();
-        console.log(error);
-
+// Sinon post du commentaire
       }else{
         e.preventDefault();
-        let Nom = document.createElement("h3");
-        let firstName = document.getElementById("first-name");
-        let lastName = document.getElementById("last-name");
-        let message = document.getElementById("message");
+// Création des éléments nécessaires au post d'un comm     
         let nomTexte = document.createTextNode(firstName.value +" " + lastName.value);
-        let conteneur = document.getElementById("comment-list");
         let msg = document.createElement("p");
         let div1 = document.createElement("div");
-        div1.className = "flex space-x-4 text-sm text-gray-500";
-       
-
         let div2 = document.createElement("div");
-        div2.className = "flex-1 py-10 border-t border-gray-200";
-
-        Nom.className = "font-medium text-gray-900";
-
+        let Nom = document.createElement("h3");
         let div3 = document.createElement("div");
-
+// Attributions des class aux differents éléments
+        div1.className = "flex space-x-4 text-sm text-gray-500";
+        div2.className = "flex-1 py-10 border-t border-gray-200";
+        Nom.className = "font-medium text-gray-900";
         div3.className = "prose prose-sm mt-4 max-w-none text-gray-500";
-
+// Assemblage des éléments
         Nom.appendChild(nomTexte);
         let leMessage = document.createTextNode(message.value);
         msg.appendChild(leMessage);      
@@ -153,12 +143,8 @@
 
         div2.appendChild(div3);
         div3.appendChild(leMessage);
- 
-        
-        
-        conteneur.innerHTML += div1.innerHTML;
-        return false;
-        
+ // Post du commentaire       
+        conteneur.innerHTML += div1.innerHTML;    
       }
       
     
