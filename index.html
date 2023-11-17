@@ -123,36 +123,48 @@
         console.log(error);
 
       }else{
-        let Nom = document.createElement("h3");
+        e.preventDefault();
+        var Nom = document.createElement("h3");
         let firstName = document.getElementById("first-name");
         let lastName = document.getElementById("last-name");
         let message = document.getElementById("message");
         let nomTexte = document.createTextNode(firstName.value +" " + lastName.value);
         let conteneur = document.getElementById("comment-list");
-        let msg = document.createElement("p");
+        var msg = document.createElement("p");
+        var div1 = document.createElement("div");
+        let div1class = div1.classList.add("flex");
+        let div1class2 = div1.classList.add("space-x-4");
+        let div1class3 = div1.classList.add("text-sm");
+        let div1class4 = div1.classList.add("text-gray-500");
+
+        let div2 = document.createElement("div");
+
+        let div2class1 = div2.classList.add("flex-1");
+        let div2class2 = div2.classList.add("py-10");
+
+        let h3class = Nom.classList.add("font-medium");
+        let h3class2 = Nom.classList.add("text-gray-900");
+
+        //let div3 = document.createElement("div");
 
         Nom.appendChild(nomTexte);
         console.log(Nom);
         let leMessage = document.createTextNode(message.value);
         msg.appendChild(leMessage);      
         console.log(msg);
-        conteneur.innerHTML += firstName.value + "" + lastName.value;
-        conteneur.innerHTML += message.value; 
+        //conteneur.innerHTML += firstName.value + "" + lastName.value;
+        //conteneur.innerHTML += message.value; 
         div1.appendChild(div2);
         div2.appendChild(Nom);
         console.log(div2);
         div2.appendChild(div3);
         div3.appendchild(msg);
-        let div1 = document.createElement("div");
-        let divclass = div1.classList.add("flex space-x-4 text-sm text-gray-500");
-        let div2 = document.createElement("div");
-        let divclass2 = div2.classList.add("flex-1 py-10");
-        let h3class = Nom.classList.add("font-medium text-gray-900");
-        let div3 = document.createElement("prose prose-sm mt-4 max-w-none text-gray-500");
-        //conteneur.innerHTML += div1;
+        
+        conteneur.innerHTML += div1;
+        return false;
         
       }
-      e.preventDefault();
+      
     
   })
 </script>
