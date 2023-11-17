@@ -17,7 +17,7 @@
           <div id="comment-list" class="-my-4">
                         
               <div class="flex space-x-4 text-sm text-gray-500">
-                <div class="flex-1 py-10 ">
+                <div class="flex-1 py-10">
                   <h3 class="font-medium text-gray-900">Emily Selman</h3>
                   <div class="prose prose-sm mt-4 max-w-none text-gray-500">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui perferendis ratione eos ipsum incidunt, ut id debitis fugiat cumque omnis, exercitationem, dolores obcaecati maiores eaque architecto delectus distinctio odio et.</p>
@@ -98,19 +98,67 @@
 </div>
 
 <script>
-  console.log("script chargés")
-  let btn = document.querySelector ("button")
+  console.log("script chargés");
+  let btn = document.querySelector ("form");
   btn.addEventListener('submit',function(e){
       let firstName = document.getElementById("first-name");
       let lastName = document.getElementById("last-name");
-      if (firstName.value.trim() == ""){
-        let error = document.getElementById("erreur")
-        error.innerHTML = erreur
-        e.preventDefault()
-      }
+      var div = document.getElementById ("error-message")
+      if (firstName.value == ""){
+        let error = document.getElementById("erreur");
+        div.style.display = "";
+        //e.preventDefault();
+        console.log(error);
 
+      }else if(lastName.value == ""){
+        let error = document.getElementById("erreur");
+        div.style.display = "";
+        //e.preventDefault();
+        console.log(error);  
+
+      }else if(message.value == ""){
+        let error = document.getElementById("erreur");
+        div.style.display = "";
+        //e.preventDefault();
+        console.log(error);
+
+      }else{
+        let Nom = document.createElement("h3");
+        let firstName = document.getElementById("first-name");
+        let lastName = document.getElementById("last-name");
+        let message = document.getElementById("message");
+        let nomTexte = document.createTextNode(firstName.value +" " + lastName.value);
+        let conteneur = document.getElementById("comment-list");
+        let msg = document.createElement("p");
+
+        Nom.appendChild(nomTexte);
+        console.log(Nom);
+        let leMessage = document.createTextNode(message.value);
+        msg.appendChild(leMessage);      
+        console.log(msg);
+        conteneur.innerHTML += firstName.value + "" + lastName.value;
+        conteneur.innerHTML += message.value; 
+        div1.appendChild(div2);
+        div2.appendChild(Nom);
+        console.log(div2);
+        div2.appendChild(div3);
+        div3.appendchild(msg);
+        let div1 = document.createElement("div");
+        let divclass = div1.classList.add("flex space-x-4 text-sm text-gray-500");
+        let div2 = document.createElement("div");
+        let divclass2 = div2.classList.add("flex-1 py-10");
+        let h3class = Nom.classList.add("font-medium text-gray-900");
+        let div3 = document.createElement("prose prose-sm mt-4 max-w-none text-gray-500");
+        //conteneur.innerHTML += div1;
+        
+      }
+      e.preventDefault();
     
   })
 </script>
 </body>
 </html>
+
+
+
+
