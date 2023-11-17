@@ -124,43 +124,39 @@
 
       }else{
         e.preventDefault();
-        var Nom = document.createElement("h3");
+        let Nom = document.createElement("h3");
         let firstName = document.getElementById("first-name");
         let lastName = document.getElementById("last-name");
         let message = document.getElementById("message");
         let nomTexte = document.createTextNode(firstName.value +" " + lastName.value);
         let conteneur = document.getElementById("comment-list");
-        var msg = document.createElement("p");
-        var div1 = document.createElement("div");
-        let div1class = div1.classList.add("flex");
-        let div1class2 = div1.classList.add("space-x-4");
-        let div1class3 = div1.classList.add("text-sm");
-        let div1class4 = div1.classList.add("text-gray-500");
+        let msg = document.createElement("p");
+        let div1 = document.createElement("div");
+        div1.className = "flex space-x-4 text-sm text-gray-500";
+       
 
         let div2 = document.createElement("div");
+        div2.className = "flex-1 py-10 border-t border-gray-200";
 
-        let div2class1 = div2.classList.add("flex-1");
-        let div2class2 = div2.classList.add("py-10");
-
-        let h3class = Nom.classList.add("font-medium");
-        let h3class2 = Nom.classList.add("text-gray-900");
+        Nom.className = "font-medium text-gray-900";
 
         let div3 = document.createElement("div");
 
+        div3.className = "prose prose-sm mt-4 max-w-none text-gray-500";
+
         Nom.appendChild(nomTexte);
-        console.log(Nom);
         let leMessage = document.createTextNode(message.value);
         msg.appendChild(leMessage);      
-        console.log(msg);
-        //conteneur.innerHTML += firstName.value + "" + lastName.value;
-        //conteneur.innerHTML += message.value; 
+    
         div1.appendChild(div2);
         div2.appendChild(Nom);
-        console.log(div2);
+
         div2.appendChild(div3);
-        div3.appendchild(msg);
+        div3.appendChild(leMessage);
+ 
         
-        conteneur.innerHTML += div1;
+        
+        conteneur.innerHTML += div1.innerHTML;
         return false;
         
       }
